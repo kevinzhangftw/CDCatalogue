@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AC85904F1C4D682A001FB6FE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC85904E1C4D682A001FB6FE /* main.cpp */; };
+		AC8590571C4D69EC001FB6FE /* cd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC8590551C4D69EC001FB6FE /* cd.cpp */; };
+		AC85905A1C4D6A74001FB6FE /* cdcatalogue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC8590581C4D6A74001FB6FE /* cdcatalogue.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,10 @@
 /* Begin PBXFileReference section */
 		AC85904B1C4D682A001FB6FE /* cdcataloguetest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = cdcataloguetest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC85904E1C4D682A001FB6FE /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		AC8590551C4D69EC001FB6FE /* cd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cd.cpp; sourceTree = "<group>"; };
+		AC8590561C4D69EC001FB6FE /* cd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cd.h; sourceTree = "<group>"; };
+		AC8590581C4D6A74001FB6FE /* cdcatalogue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cdcatalogue.cpp; sourceTree = "<group>"; };
+		AC8590591C4D6A74001FB6FE /* cdcatalogue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cdcatalogue.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,10 @@
 			isa = PBXGroup;
 			children = (
 				AC85904E1C4D682A001FB6FE /* main.cpp */,
+				AC8590551C4D69EC001FB6FE /* cd.cpp */,
+				AC8590581C4D6A74001FB6FE /* cdcatalogue.cpp */,
+				AC8590591C4D6A74001FB6FE /* cdcatalogue.h */,
+				AC8590561C4D69EC001FB6FE /* cd.h */,
 			);
 			path = cdcataloguetest;
 			sourceTree = "<group>";
@@ -118,6 +128,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC85905A1C4D6A74001FB6FE /* cdcatalogue.cpp in Sources */,
+				AC8590571C4D69EC001FB6FE /* cd.cpp in Sources */,
 				AC85904F1C4D682A001FB6FE /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
