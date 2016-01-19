@@ -39,27 +39,27 @@ void TestFunc1()
     // call default constructor
     CDCatalogue cat1;
     
-//    // remove some non-existent item
-//    cat1.Remove(CD("Wham!", "Make It Big"));
+    // remove some non-existent item
+    cat1.Remove(CD("Wham!", "Make It Big"));
     
     
     //Dude do you take duplicates?
     
-    // insert some item
-//    for (int i = 0; i < 100; i++) {
-//        //TODO: duplicates not allowed.
-//        cat1.Insert(CD("KISS", "Destroyer"));
-//        cat1.Insert(CD("Rick", "AStley"));
-//    }
-//
-//    
-//    cat1.Insert(CD("ASS", "Destroyer1"));
-//    cat1.Insert(CD("BASS", "Destroyer2"));
-//    cat1.Insert(CD("CASS", "Destroyer3"));
-//    cat1.Insert(CD("DASS", "Destroyer4"));
-//    cat1.Insert(CD("EASS", "Destroyer5"));
-//    cat1.Insert(CD("FASS", "Destroyer6"));
-//    cat1.Insert(CD("GASS", "Destroyer7"));
+     //insert some item
+    for (int i = 0; i < 10; i++) {
+        //TODO: duplicates not allowed.
+        cat1.Insert(CD("KISS", "Destroyer"));
+        cat1.Insert(CD("Rick", "AStley"));
+    }
+
+    
+    cat1.Insert(CD("ASS", "Destroyer1"));
+    cat1.Insert(CD("BASS", "Destroyer2"));
+    cat1.Insert(CD("CASS", "Destroyer3"));
+    cat1.Insert(CD("DASS", "Destroyer4"));
+    cat1.Insert(CD("EASS", "Destroyer5"));
+    cat1.Insert(CD("FASS", "Destroyer6"));
+    cat1.Insert(CD("GASS", "Destroyer7"));
     
     
     // remove some non-existent item
