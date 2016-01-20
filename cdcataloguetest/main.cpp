@@ -38,11 +38,12 @@ void TestFunc1()
 {
     // call default constructor
     CDCatalogue cat1;
+    CDCatalogue cat2(cat1);
     
     // remove some non-existent item
-    cat1.Remove(CD("Wham!", "Make It Big"));
+    //cat1.Remove(CD("Wham!", "Make It Big"));
     
-    cat1.Insert(CD("", ""));
+//    cat1.Insert(CD("", ""));
     
     //Dude do you take duplicates?
 //    for (int i = 0; i < 5; i++) {
@@ -52,19 +53,22 @@ void TestFunc1()
 //    }
 
     
-//    cat1.Insert(CD("ASS", "Destroyer1"));
-//    cat1.Insert(CD("BASS", "Destroyer2"));
-//    cat1.Insert(CD("CASS", "Destroyer3"));
-//    cat1.Insert(CD("DASS", "Destroyer4"));
-//    cat1.Insert(CD("EASS", "Destroyer5"));
-//    cat1.Insert(CD("FASS", "Destroyer6"));
-//    cat1.Insert(CD("GASS", "Destroyer7"));
+    cat1.Insert(CD("ASS", "Destroyer1"));
+    cat1.Insert(CD("ASS", "Destroyer2"));
+    cat1.Insert(CD("ASS", "Destroyer3"));
+    cat1.Insert(CD("ASS", "Destroyer4"));
+    cat1.Insert(CD("ASS", "Destroyer5"));
+    cat1.Insert(CD("ASS", "Destroyer6"));
+    cat1.Insert(CD("ASS", "Destroyer7"));
     
+    CDCatalogue catjoin(cat1.Join(cat2));
     
+    //cat1.Boycott("ASS");
     // remove some non-existent item
     //TODO: expecting to remove ass destroyer 1
-    cat1.Remove(CD("ASS", "Destroyer1"));
+    //cat1.Remove(CD("ASS", "Destroyer"));
  //   assert(cat1.Count() == 2);
+ //   cat1.Find(CD("BASS", "Destroyer2"));
     cout << "Number of discs in collection: " << cat1.Count() << endl;
     cout << endl;
 }
@@ -80,11 +84,11 @@ void TestFunc2()
     cat2.Boycott("Aqua");
     
     int index = cat1.Find(CD("New Kids on the Block", "Hangin' Tough"));
-//
-//    // set function calls
-//    CDCatalogue catjoin(cat1.Join(cat2));
-//    CDCatalogue catcommon(cat1.Common(cat2));
-//    CDCatalogue catsplit(cat1.Split(cat2));
+
+    // set function calls
+    CDCatalogue catjoin(cat1.Join(cat2));
+    CDCatalogue catcommon(cat1.Common(cat2));
+    CDCatalogue catsplit(cat1.Split(cat2));
 }
 
 void TestFunc3()

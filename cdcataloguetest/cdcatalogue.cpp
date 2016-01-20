@@ -60,7 +60,7 @@ bool CDCatalogue::Insert(CD disc){
         for (int i =0; i<numcds; ++i) {
             //if there are duplicates, return false immediately
             //if (disc == cds[i]) {
-            if ((disc.GetAlbum() == cds[i].GetAlbum())) {
+            if ((disc.GetAlbum() == cds[i].GetAlbum()) && (disc.GetArtist() == cds[i].GetArtist())) {
                 cout <<"error, CD is already here" << endl;
                 return false;
             }
@@ -114,23 +114,16 @@ bool CDCatalogue::Remove(CD disc){
 // Returns -1 if no CD with matching parameters exists in the catalogue
 // PARAM: disc = item to be located, its fields should not be empty string
 int CDCatalogue::Find(CD disc) const{
-    if (numcds==0) {
-        cout <<"no such cd, collection is empty" << endl;
-        return -1;
-    }else{
-        for (int i=0; i<numcds; ++i){
+    for (int i=0; i<numcds; ++i){
             if (disc == cds[i]){
                 //cd located
                 cout <<"cd index is "<< i << endl;
                 return i;
-            }else{
-                cout <<"no such cd" << endl;
-                return -1;
             }
         }
-        cout <<"error: for loop didnt run" << endl;
-        return false; //HAX
-    }
+        cout <<"no such cd" << endl;
+        return -1;
+    
 
 }
 
@@ -142,24 +135,22 @@ int CDCatalogue::Find(CD disc) const{
 // POST:  catalogue contains no instances of CDs with the supplied artist name
 // PARAM: dontlikeanymore = name of artist whose CDs should be removed from the catalogue
 bool CDCatalogue::Boycott(string dontlikeanymore){
-    if (numcds==0) {
-        cout <<"nothing to boycott" << endl;
-        return false;
-    }else{
+    
+        if (dontlikeanymore == "") {
+            cout <<"input is empty string" << endl;
+            return false;
+        }
         //check all the cds
         for (int i=0; i<numcds; ++i){
             if (dontlikeanymore == cds[i].GetArtist()){
                 //remove cd
-                cds[i]= cds[numcds-1];
+                cds[i]= cds[i+1];
                 numcds--;
-            }else{
-                cout <<"not matching CDs or input is empty string" << endl;
-                return false;
             }
         }
-        cout <<"all targeted CDs removed" << endl;
+        //if for loop never ran
+        cout <<"boycott success" << endl;
         return true;
-    }
 
 }
 
@@ -171,17 +162,26 @@ int CDCatalogue::Count() const{
 //    // Returns the set union of this and cat
 //   // POST: union contains CD of this and cat, with no duplicate CDs (both parameters matching).
 CDCatalogue CDCatalogue::Join(const CDCatalogue& cat) const{
-	CDCatalogue joinedcds = CDCatalogue();
-    
-	return joinedcds;
+    CDCatalogue joinedCDCatalogue = CDCatalogue(cat);
+    //compare the arrays
+    for (int i=0; i<numcds; ++i) {
+        if ((cds[i].GetAlbum()==cat.cds[i].GetAlbum())&&(cds[i].GetArtist()==cat.cds[i].GetArtist())) {
+            //dont join
+            cout <<"joined data compare" << endl;
+        }else{
+            //join
+            cout <<"joined data different" << endl;
+        }
+    }
+	return joinedCDCatalogue;
 }
 //
 //   // Returns the set intersection of this and cat
 //   // POST: intersection contains CDs in both this and cat (both parameters matching).
  CDCatalogue CDCatalogue::Common(const CDCatalogue& cat) const{
-     CDCatalogue commoncds = CDCatalogue();
+     CDCatalogue commonCDCatalogue = CDCatalogue(cat);
      
-     return commoncds;
+     return commonCDCatalogue;
 }
 //
 //   // Returns the set difference of this and cat
@@ -189,7 +189,7 @@ CDCatalogue CDCatalogue::Join(const CDCatalogue& cat) const{
 //   //   for a CD to be removed in the split.
 //   // POST: difference contains CDs in this but not also in cat
    CDCatalogue CDCatalogue::Split(const CDCatalogue& cat) const{
-       CDCatalogue differentcds = CDCatalogue();
+       CDCatalogue differentCDCatalogue = CDCatalogue(cat);
        
-       return differentcds;
+       return differentCDCatalogue;
 }
