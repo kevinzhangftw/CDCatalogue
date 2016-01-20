@@ -38,7 +38,7 @@ void TestFunc1()
 {
     // call default constructor
     CDCatalogue cat1;
-    CDCatalogue cat2(cat1);
+    
     
     // remove some non-existent item
     //cat1.Remove(CD("Wham!", "Make It Big"));
@@ -60,6 +60,8 @@ void TestFunc1()
     cat1.Insert(CD("ASS", "Destroyer5"));
     cat1.Insert(CD("ASS", "Destroyer6"));
     cat1.Insert(CD("ASS", "Destroyer7"));
+    
+    CDCatalogue cat2(cat1);
     
     CDCatalogue catjoin(cat1.Join(cat2));
     

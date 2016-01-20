@@ -163,15 +163,21 @@ int CDCatalogue::Count() const{
 //   // POST: union contains CD of this and cat, with no duplicate CDs (both parameters matching).
 CDCatalogue CDCatalogue::Join(const CDCatalogue& cat) const{
     CDCatalogue joinedCDCatalogue = CDCatalogue(cat);
-    //compare the arrays
+    //compare the arrays in both catalogue
     for (int i=0; i<numcds; ++i) {
-        if ((cds[i].GetAlbum()==cat.cds[i].GetAlbum())&&(cds[i].GetArtist()==cat.cds[i].GetArtist())) {
-            //dont join
-            cout <<"joined data compare" << endl;
-        }else{
-            //join
-            cout <<"joined data different" << endl;
+        
+        for (int j =0; j<joinedCDCatalogue.numcds; ++j) {
+            
+            //if ((cds[i].GetAlbum()==cat.cds[i].GetAlbum())&&(cds[i].GetArtist()==cat.cds[i].GetArtist())) {
+            if (cds[i] != joinedCDCatalogue.cds[i]){
+                //dont join
+                cout <<"do add to joinedcdcatalogue" << endl;
+            }else{
+                //join
+                cout <<"dont add to cdcatalogue" << endl;
+            }
         }
+        
     }
 	return joinedCDCatalogue;
 }
