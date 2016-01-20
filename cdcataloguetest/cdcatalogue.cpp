@@ -56,58 +56,30 @@ CDCatalogue::~CDCatalogue(){
 // NOTE:  since overloaded assignment operator has not been defined,
 //          "insertion" will mean updating all fields of the CD at the appropriate index
 bool CDCatalogue::Insert(CD disc){
-    if (numcds ==0) {
-        //just insert  cd
-        cds[0]= disc;
-        numcds++;
-        return true;
-    }else{
         //check for duplicates
         for (int i =0; i<numcds; ++i) {
-            //if there are no duplicates
-            if (disc != cds[i]) {
-                //if the array is full
-                if (numcds==maxsize){
-                    CD* oldcds = cds;
-                    maxsize = 2*maxsize;
-                    cds = new CD[maxsize];
-                    copy(oldcds, oldcds+maxsize, cds);
-                    delete[] oldcds;
-                }
-                //insert CD
-                cds[i]= disc;
-                numcds++;
-                cout <<"CD inserted" << endl;
-                return true;
-            }else{ //if there is a duplicate
+            //if there are duplicates, return false immediately
+            //if (disc == cds[i]) {
+            if ((disc.GetAlbum() == cds[i].GetAlbum())) {
                 cout <<"error, CD is already here" << endl;
                 return false;
             }
         }
-        cout <<"for loop never run, not suppose to be here" << endl;
-        return false;
-    }
-    
-//    for (int i = 0; i<maxsize; i++){
-//        if (disc != cds[i]) {
-//            if (numcds==maxsize){
-//                CD* oldcds = cds;
-//                maxsize = 2*maxsize;
-//                cds = new CD[maxsize];
-//                copy(oldcds, oldcds+maxsize, cds);
-//                delete[] oldcds;
-//            }
-//            //insert CD
-//            cds[i]= disc;
-//            numcds++;
-//            cout <<"CD inserted" << endl;
-//            return true;
-//        }else{
-//            cout <<"error, CD is already here" << endl;
-//            return false;
-//        }
-//    }
-//    return false; //HAX
+        
+        //if the array is full
+        if (numcds==maxsize){
+            CD* oldcds = cds;
+            maxsize = 2*maxsize;
+            cds = new CD[maxsize];
+            copy(oldcds, oldcds+maxsize, cds);
+            delete[] oldcds;
+        }
+        //insert CD
+        cds[numcds]= disc;
+        numcds++;
+        cout <<"CD inserted" << endl;
+        return true;
+
 }
 
 // Remove - performs a set removal with the CD catalogue
@@ -119,11 +91,6 @@ bool CDCatalogue::Insert(CD disc){
 //          CD at the appropriate index using the parameters of the CD in
 //          the last valid index of the collection; then decrements count and returns true;
 bool CDCatalogue::Remove(CD disc){
-    if (numcds == 0) {
-        //collections is empty, nothing to remove
-        cout <<"collection is empty, nothing to remove" << endl;
-        return false;
-    }else{
         //check all the cds
         for (int i=0; i<numcds; ++i){
             //if match found
@@ -138,9 +105,9 @@ bool CDCatalogue::Remove(CD disc){
                 return false;
             }
         }
-        cout <<"error: for loop never run, not suppose to be here" << endl;
-        return false; //HAX
-    }
+        cout <<"collection is empty, nothing to remove" << endl;
+        return false;
+    
 }
 
 // Locates the array index of a CD with matching parameters
@@ -205,27 +172,24 @@ int CDCatalogue::Count() const{
 //   // POST: union contains CD of this and cat, with no duplicate CDs (both parameters matching).
 CDCatalogue CDCatalogue::Join(const CDCatalogue& cat) const{
 	CDCatalogue joinedcds = CDCatalogue();
-	for (int i=0; i<numcds; ++i){
-		//compare the 2 catalogues
-		//add or dont add to joinedcds
-	}
+    
 	return joinedcds;
 }
 //
 //   // Returns the set intersection of this and cat
 //   // POST: intersection contains CDs in both this and cat (both parameters matching).
-//   CDCatalogue CDCatalogue::Common(const CDCatalogue& cat) const{
-//	for (int i=0; i<numcds; ++i){
-
-//	}
-//}
+ CDCatalogue CDCatalogue::Common(const CDCatalogue& cat) const{
+     CDCatalogue commoncds = CDCatalogue();
+     
+     return commoncds;
+}
 //
 //   // Returns the set difference of this and cat
 //   // CDs in both catalogues must have a full set of matching parameters
 //   //   for a CD to be removed in the split.
 //   // POST: difference contains CDs in this but not also in cat
-//   CDCatalogue CDCatalogue::Split(const CDCatalogue& cat) const{
-//	for (int i=0; i<numcds; ++i){
-
-//	}
-//}
+   CDCatalogue CDCatalogue::Split(const CDCatalogue& cat) const{
+       CDCatalogue differentcds = CDCatalogue();
+       
+       return differentcds;
+}

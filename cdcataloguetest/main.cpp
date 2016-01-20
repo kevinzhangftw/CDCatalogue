@@ -42,30 +42,29 @@ void TestFunc1()
     // remove some non-existent item
     cat1.Remove(CD("Wham!", "Make It Big"));
     
+    cat1.Insert(CD("", ""));
     
     //Dude do you take duplicates?
-    
-     //insert some item
-    for (int i = 0; i < 10; i++) {
-        //TODO: duplicates not allowed.
-        cat1.Insert(CD("KISS", "Destroyer"));
-        cat1.Insert(CD("Rick", "AStley"));
-    }
+//    for (int i = 0; i < 5; i++) {
+//        //TODO: duplicates not allowed.
+//        cat1.Insert(CD("KISS", "Destroyer"));
+//        cat1.Insert(CD("Rick", "AStley"));
+//    }
 
     
-    cat1.Insert(CD("ASS", "Destroyer1"));
-    cat1.Insert(CD("BASS", "Destroyer2"));
-    cat1.Insert(CD("CASS", "Destroyer3"));
-    cat1.Insert(CD("DASS", "Destroyer4"));
-    cat1.Insert(CD("EASS", "Destroyer5"));
-    cat1.Insert(CD("FASS", "Destroyer6"));
-    cat1.Insert(CD("GASS", "Destroyer7"));
+//    cat1.Insert(CD("ASS", "Destroyer1"));
+//    cat1.Insert(CD("BASS", "Destroyer2"));
+//    cat1.Insert(CD("CASS", "Destroyer3"));
+//    cat1.Insert(CD("DASS", "Destroyer4"));
+//    cat1.Insert(CD("EASS", "Destroyer5"));
+//    cat1.Insert(CD("FASS", "Destroyer6"));
+//    cat1.Insert(CD("GASS", "Destroyer7"));
     
     
     // remove some non-existent item
     //TODO: expecting to remove ass destroyer 1
     cat1.Remove(CD("ASS", "Destroyer1"));
-    assert(cat1.Count() == 6);
+ //   assert(cat1.Count() == 2);
     cout << "Number of discs in collection: " << cat1.Count() << endl;
     cout << endl;
 }
